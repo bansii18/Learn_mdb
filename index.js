@@ -15,9 +15,14 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model("User",userSchema);
 
-const user1 = new User({ name: "Vraj", age: 20 });
-const user2 = new User({ name: "jay", age: 19 });
-user1.save();
-user2.save()
-.then(()=>console.log("res"))
-.catch((err) => console.log("err"));
+// const user1 = new User({ name: "Vraj", age: 20 });
+// const user2 = new User({ name: "jay", age: 19 });
+// user1.save();
+// user2.save()
+// .then(()=>console.log("res"))
+// .catch((err) => console.log("err"));
+User.insertMany([
+    { name: "Vraj", age: 20 },
+    { name: "jay", age: 19 },
+    { name: "bansi", age: 18 }
+]).then((res)=>console.log(res));
