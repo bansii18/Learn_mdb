@@ -39,5 +39,8 @@ const User = mongoose.model("User",userSchema);
 // .then((res)=>console.log(res[0].name))
 // .catch((err)=>console.log(err));
 
-User.updateMany({age:{$gt:18}},{age:11})
+User.updateMany({age:{$eq:18}},{age:11})
+.then((res)=>console.log(res));
+
+User.findOneAndUpdate({name:"Vraj"},{age:11})
 .then((res)=>console.log(res));
