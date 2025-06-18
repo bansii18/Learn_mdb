@@ -21,8 +21,20 @@ const User = mongoose.model("User",userSchema);
 // user2.save()
 // .then(()=>console.log("res"))
 // .catch((err) => console.log("err"));
-User.insertMany([
-    { name: "Vraj", age: 20 },
-    { name: "jay", age: 19 },
-    { name: "bansi", age: 18 }
-]).then((res)=>console.log(res));
+// User.insertMany([
+//     { name: "Vraj", age: 20 },
+//     { name: "jay", age: 19 },
+//     { name: "bansi", age: 18 }
+// ]).then((res)=>console.log(res));
+
+User.find({_id : '685257f6d6e55c4f725b6fd1'})
+.then((res)=>console.log(res[0].name))
+.catch((err)=>console.log(err));
+
+User.findById("685257f6d6e55c4f725b6fd1")
+.then((res)=>console.log(res.name))
+.catch((err)=>console.log(err));
+
+User.find({age : {$eq : 18}})
+.then((res)=>console.log(res[0].name))
+.catch((err)=>console.log(err));
