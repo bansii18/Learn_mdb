@@ -27,14 +27,17 @@ const User = mongoose.model("User",userSchema);
 //     { name: "bansi", age: 18 }
 // ]).then((res)=>console.log(res));
 
-User.find({_id : '685257f6d6e55c4f725b6fd1'})
-.then((res)=>console.log(res[0].name))
-.catch((err)=>console.log(err));
+// User.find({_id : '685257f6d6e55c4f725b6fd1'})
+// .then((res)=>console.log(res[0].name))
+// .catch((err)=>console.log(err));
 
-User.findById("685257f6d6e55c4f725b6fd1")
-.then((res)=>console.log(res.name))
-.catch((err)=>console.log(err));
+// User.findById("685257f6d6e55c4f725b6fd1")
+// .then((res)=>console.log(res))
+// .catch((err)=>console.log(err));
 
-User.find({age : {$eq : 18}})
-.then((res)=>console.log(res[0].name))
-.catch((err)=>console.log(err));
+// User.find({age : {$eq : 18}})
+// .then((res)=>console.log(res[0].name))
+// .catch((err)=>console.log(err));
+
+User.updateMany({age:{$gt:18}},{age:11})
+.then((res)=>console.log(res));
