@@ -1,14 +1,15 @@
-const monggose = require("mongoose");
+const mongoose = require("mongoose");
 async function main(){
-    await monggose.connect("mongodb://127.0.0.1:27017/myBooks");
+    await mongoose.connect("mongodb://127.0.0.1:27017/myBooks");
 }
 main()
 .then(()=>console.log("Connection Sucessfull"))
 .catch((err)=>console.log(err));
 
-const bookSchema = new monggose.Schema({
+const bookSchema = new mongoose.Schema({
     title:{
         type : String,
+        maxLength : 10,
         required:true,
     },
     author:{
@@ -16,13 +17,25 @@ const bookSchema = new monggose.Schema({
     },
     price:{
         type:Number,
+        min:1,
     },
+    discount:{
+        type:Number,
+        default : 120,
+    },
+    category: {
+        type: String,
+        enum: ["comics", "manga"],
+    },
+    genere : [String],
 });
-const Book = monggose.model("Book",bookSchema);
+const Book = mongoose.model("Book",bookSchema);
 let book1 = new Book({
-    // title:"Mathematics",
+    title:"Science",
     author:"RD Sharma",
-    price : 1200,
+    price : 10,
+    category: "comics",
+   genere: ["scifi" , "fantasy"],
 });
 book1   
     .save()
