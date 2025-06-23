@@ -45,14 +45,14 @@ const User = mongoose.model("User",userSchema);
 // User.findOneAndUpdate({name:"Vraj"},{age:11})
 // .then((res)=>console.log(res));
 
-User.deleteMany({name: "Vraj"})
-.then((res)=>console.log(res))
-.catch((err)=>console.log(err));
+// User.deleteMany({name: "Vraj"})
+// .then((res)=>console.log(res))
+// .catch((err)=>console.log(err));
 
-User.deleteMany({name: "bansi"})
-.then((res)=>console.log(res))
-.catch((err)=>console.log(err));
+// User.deleteMany({name: "bansi"})
+// .then((res)=>console.log(res))
+// .catch((err)=>console.log(err));
 
-User.deleteMany({name: "jay"})
-.then((res)=>console.log(res))
-.catch((err)=>console.log(err));
+// User.deleteMany({name: "jay"})
+// .then((res)=>console.log(res))
+// .catch((err)=>console.log(err));
